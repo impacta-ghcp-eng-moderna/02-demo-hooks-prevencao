@@ -1,0 +1,20 @@
+environment: production
+service:
+  name: checkout-api
+  public_url: https://checkout.example.test
+  healthcheck_url: https://checkout.example.test/health
+  request_timeout_ms: 3000
+  retry_attempts: 3
+database:
+  host: postgres.production.internal.example.test
+  port: 5432
+  name: checkout
+  pool:
+    minimum: 20
+    maximum: 100
+features:
+  asynchronous_confirmation: true
+  fraud_analysis: true
+telemetry:
+  endpoint: https://otel.production.internal.example.test/v1/traces
+  sample_rate: 0.05
