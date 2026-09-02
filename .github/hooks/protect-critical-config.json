@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "type": "command",
+        "matcher": "apply_patch|bash|create|delete|edit|powershell|str_replace_editor|write",
+        "powershell": "& \".github/scripts/protect-critical-files.ps1\"",
+        "bash": "bash \".github/scripts/protect-critical-files.sh\"",
+        "timeoutSec": 10
+      }
+    ]
+  }
+}

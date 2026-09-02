@@ -1,0 +1,20 @@
+environment: staging
+service:
+  name: checkout-api
+  public_url: https://checkout.staging.example.test
+  healthcheck_url: https://checkout.staging.example.test/health
+  request_timeout_ms: 5000
+  retry_attempts: 2
+database:
+  host: postgres.staging.internal.example.test
+  port: 5432
+  name: checkout_staging
+  pool:
+    minimum: 5
+    maximum: 30
+features:
+  asynchronous_confirmation: true
+  fraud_analysis: true
+telemetry:
+  endpoint: https://otel.staging.internal.example.test/v1/traces
+  sample_rate: 0.25
